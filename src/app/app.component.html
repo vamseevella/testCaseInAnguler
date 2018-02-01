@@ -1,0 +1,13 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<div style="text-align:center">
+  <h1>
+    Welcome to {{title}}!
+  </h1>
+</div>
+<div>
+  <button (click)=getNewRandomUser()>Get new random user</button>
+
+  <p>Username: {{ user.getUserName() }}</p>
+  <p>Name: {{ user.getName() }}</p>
+  <p>Email: {{user.getEmail() }}</p>
+</div>
