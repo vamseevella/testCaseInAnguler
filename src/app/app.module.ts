@@ -1,18 +1,23 @@
-import { BrowserModule } from '@angular/platform-browser';
-import { NgModule } from '@angular/core';
+import {BrowserModule} from '@angular/platform-browser';
+import {NgModule} from '@angular/core';
+import {FacebookModule} from 'ngx-facebook';
+import {HttpClientModule} from '@angular/common/http';
 
 
-import { AppComponent } from './app.component';
-import { UserService } from './services/user.service';
+import {AppComponent} from './app.component';
+import {UserService} from './services/user.service';
 
 @NgModule({
   declarations: [
     AppComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    HttpClientModule,
+    FacebookModule.forRoot()
   ],
   providers: [UserService],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
