@@ -18,20 +18,39 @@ describe('cal test api and test the data', () => {
   }));
 
 
-  it('getUserDetails from https://jsonplaceholder.typicode.com/users', inject([UsersService], (userService: UsersService) => {
+  it('getUserDetails from https://jsonplaceholder.typicode.com/users', async(inject([UsersService], (userService: UsersService) => {
     userService
       .getUserData()
       .toPromise()
       .then((user) => {
         expect(user).toEqual(jasmine.any(Array));
-        expect(user).toEqual(jasmine.objectContaining({
+        expect(user[0]).toEqual(jasmine.objectContaining({
           'id': 1,
           'name': 'Leanne Graham',
           'username': 'Bret',
           'email': 'Sincere@april.biz',
         }));
-      }).catch((res) => fail(res.status));
-  }));
+      }).catch((res) => {
+      fail(res.status);
+    });
+  })), 10000);
+
+  xit('getUserDetails from https://jsonplaceholder.typicode.com/ram', async(inject([UsersService], (userService: UsersService) => {
+    userService
+      .getUserInfo()
+      .toPromise()
+      .then((user) => {
+        expect(user).toEqual(jasmine.any(Array));
+        expect(user[0]).toEqual(jasmine.objectContaining({
+          'id': 1,
+          'name': 'Leanne Graham',
+          'username': 'Bret',
+          'email': 'Sincere@april.biz',
+        }));
+      }).catch((res) => {
+      fail(res.status);
+    });
+  })), 10000);
 
 
 });

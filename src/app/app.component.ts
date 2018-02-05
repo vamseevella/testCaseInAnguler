@@ -46,7 +46,7 @@ export class AppComponent implements OnInit {
   }
 
   getFacebookData(response): void {
-    console.log('data', response);
+    // console.log('data', response);
     this.fb.api('/me?fields=email,name,gender,first_name')
       .then((res: any) => console.log(res))
       .catch(e => console.log(e));
