@@ -1,0 +1,458 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:400,700|PT+Serif:700|Work+Sans:600');
+@import './illuminations-app-theme';
+
+// Variables
+
+$colors: (
+  error: #FF0000,
+  light-background: #ffffff,
+  light-text: #ffffff,
+  light-gradient: rgba(250, 170, 93, 100),
+  button-gradient: rgba(251, 170, 93, 100),
+  medium-background: #696969,
+  medium-border: #979797,
+  medium-text: #979797,
+  dark-gradient: rgba(254, 138, 116, 100),
+  h5-dark-gradient: rgba(254, 138, 116, 100),
+  dark-background: #1c1c1e,
+  dark-text: #3A3A3E,
+  header-button-lbg: rgba(250, 172, 91, 100),
+  header-button-dbg: rgba(255, 138, 117, 100),
+  shadows: rgba(45, 47, 48, .08),
+  page-background: #FBFCFC,
+  logo-grey: #E0E3E4,
+  search-light-gradient: #FDAA55,
+  search-dark-gradient: #FF8970,
+  light-background-hover: #ECEEF0,
+  h4-gradiant-color: #FF8A74
+);
+
+$browser-context: 16;
+
+$hd-res: 1800px;
+$desktop-res: 1000px;
+$tablet-res: 640px;
+$tablet-res-max: 770px;
+//Mixins
+
+@mixin gradient {
+  background: map-get($colors, light-gradient);
+  background: -webkit-linear-gradient(left top, map-get($colors, light-gradient), map-get($colors, dark-gradient));
+  background: -o-linear-gradient(bottom right, map-get($colors, light-gradient), map-get($colors, dark-gradient));
+  background: -moz-linear-gradient(bottom right, map-get($colors, light-gradient), map-get($colors, dark-gradient));
+  background: linear-gradient(to bottom right, map-get($colors, light-gradient), map-get($colors, dark-gradient));
+}
+
+@mixin hover-gradient {
+  background: #F49650;
+  background: -webkit-linear-gradient(left top, #F49650, #F97869);
+  background: -o-linear-gradient(bottom right, #F49650, #F97869);
+  background: -moz-linear-gradient(bottom right, #F49650, #F97869);
+  background: linear-gradient(to bottom right, #F49650, #F97869);
+}
+
+@mixin HBgradient {
+  background: map-get($colors, header-button-lbg);
+  background: -webkit-linear-gradient(left, map-get($colors, header-button-lbg), map-get($colors, header-button-dbg));
+  background: -o-linear-gradient(right, map-get($colors, header-button-lbg), map-get($colors, header-button-dbg));
+  background: -moz-linear-gradient(right, map-get($colors, header-button-lbg), map-get($colors, header-button-dbg));
+  background: linear-gradient(to right, map-get($colors, header-button-lbg), map-get($colors, header-button-dbg));
+}
+
+@mixin shadow {
+  -webkit-box-shadow: 0px 25px 55px 8px map-get($colors, shadows);
+  -moz-box-shadow: 0px 25px 55px 8px map-get($colors, shadows);
+  box-shadow: 0px 25px 55px 8px map-get($colors, shadows);
+}
+
+//Functions
+
+//Returns em value based on pixel input
+@function em($pixels, $context: $browser-context) {
+  @return #{$pixels/$context}em;
+}
+
+//Base Styles
+
+html, body, ul {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, p {
+  color: map-get($colors, dark-text);
+}
+
+h1 {
+  font-family: 'PT Serif', serif;
+  font-size: em(36);
+  font-weight: bold;
+  //line-height: em(47, 36);
+  &.gradient {
+    @include gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+h1.hero {
+  font-size: em(48);
+  line-height: em(89, 48);
+  letter-spacing: em(1, 48);
+}
+
+h2 {
+  font-size: em(27);
+  line-height: em(38);
+  letter-spacing: em(.5);
+}
+
+h3 {
+  font-size: em(20.25);
+  line-height: em(28, 20.25);
+  letter-spacing: em(.25, 20.25);
+}
+
+h3.gradient {
+  @include gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+h4 {
+  font-size: em(11.25);
+  line-height: em(18, 11.25);
+  letter-spacing: em(.25, 11.25);
+  &.gradient {
+    @include gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+}
+
+h5 {
+  font-family: 'PT Serif', serif;
+  font-size: em(24);
+  line-height: em(39, 24);
+  letter-spacing: em(.5, 24);
+  &.quote {
+    color: map-get($colors, h5-dark-gradient);
+  }
+}
+
+h2, h3, h4, p, a, button, td {
+  outline: none;
+  font-family: 'Open Sans', sans-serif;
+  text-decoration: none;
+}
+
+p, a, td {
+  color: map-get($colors, dark-text);
+  font-size: em(18);
+  line-height: em(32, 18);
+}
+
+input, .label {
+  font-family: 'Open Sans', sans-serif;
+  font-weight: 700;
+  font-size: em(14);
+}
+
+.label {
+  transform-origin: center left;
+}
+
+ul {
+  list-style: none;
+}
+
+md-input-container {
+  font-family: 'Open Sans', sans-serif;
+}
+
+a.disabled {
+  opacity: .7;
+  cursor: pointer;
+}
+
+button {
+  cursor: pointer;
+  background: none;
+  border: none;
+  transition: color 2s;
+  &:disabled {
+    background: rgba(0, 0, 0, 0);
+    box-sizing: border-box;
+    border: 1px solid;
+    opacity: .5;
+    -webkit-border-image: -webkit-linear-gradient(left top, map-get($colors, light-gradient), map-get($colors, dark-gradient));
+    -o-border-image: -o-linear-gradient(bottom right, map-get($colors, light-gradient), map-get($colors, dark-gradient));
+    -moz-border-image: -moz-linear-gradient(bottom right, map-get($colors, light-gradient), map-get($colors, dark-gradient));
+    border-image: linear-gradient(to bottom right, map-get($colors, light-gradient), map-get($colors, dark-gradient));
+    border-image-slice: 1;
+    span {
+      @include gradient;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      font-size: em(15.75, 15.75);
+      font-family: 'Work Sans', sans-serif;
+    }
+  }
+}
+
+.ib-btn-secondary {
+  padding: em(14) em(30) em(14) em(30);
+  background: rgba(0, 0, 0, 0);
+  box-sizing: border-box;
+  border: 1px solid;
+  -webkit-border-image: -webkit-linear-gradient(left top, map-get($colors, light-gradient), map-get($colors, dark-gradient));
+  -o-border-image: -o-linear-gradient(bottom right, map-get($colors, light-gradient), map-get($colors, dark-gradient));
+  -moz-border-image: -moz-linear-gradient(bottom right, map-get($colors, light-gradient), map-get($colors, dark-gradient));
+  border-image: linear-gradient(to bottom right, map-get($colors, light-gradient), map-get($colors, dark-gradient));
+  border-image-slice: 1;
+  font-family: 'Work Sans', sans-serif;
+  font-size: em(14);
+  letter-spacing: em(2, 14);
+  font-weight: bold;
+  span {
+    @include gradient;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-size: em(15.75, 15.75);
+    font-family: 'Work Sans', sans-serif;
+    font-weight: 700;
+  }
+}
+
+.search-results {
+  md-paginator {
+    margin: auto;
+    width: em(325, 12);
+  }
+}
+
+input:focus {
+  outline: none;
+}
+
+.label {
+  pointer-events: none;
+}
+
+.inline {
+  display: inline;
+}
+
+.spacer {
+  width: em(64);
+  height: em(5);
+  @include gradient;
+}
+
+.clear {
+  clear: both;
+}
+
+.error-state {
+  color: map-get($colors, error);
+}
+
+// TODO remove when possible
+.inactive {
+  display: none;
+}
+
+.font-grad {
+  @include gradient;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.ib-btn, .secondary-btn {
+  color: white;
+  @include gradient;
+  border: none;
+  font-family: 'Work Sans', sans-serif;
+  font-size: em(16);
+  letter-spacing: em(2, 16);
+  font-weight: bold;
+  transition: background-image .2s ease;
+  &:hover:not(:disabled) {
+    @include hover-gradient;
+  }
+}
+
+.ib-btn {
+  padding: em(14, 16) em(30, 16) em(14, 16) em(30, 16);
+}
+
+.underline-btn {
+  margin: 0;
+  padding: 0;
+  padding-bottom: 2px;
+  border: none;
+  background: linear-gradient(to bottom right, map-get($colors, light-gradient), map-get($colors, dark-gradient)) left bottom no-repeat;
+  background-size: 100% 2px;
+  h2 {
+    margin: 0;
+    width: initial;
+  }
+}
+
+.ib-input {
+  padding-bottom: 2px;
+  border: none;
+  background: linear-gradient(to bottom right, map-get($colors, light-gradient), map-get($colors, dark-gradient)) left bottom no-repeat;
+  background-size: 100% 2px;
+}
+
+.input-border {
+  margin: auto;
+  width: em(250);
+  height: em(60);
+  border: 1px solid map-get($colors, medium-background);
+  box-sizing: border-box;
+  background: map-get($colors, light-background);
+}
+
+.input-border-alt {
+  margin: auto;
+  width: em(250);
+  height: em(60);
+  @include gradient;
+  input {
+    color: map-get($colors, light-text);
+    background: none;
+  }
+}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+.error-message {
+  font-size: em(10);
+  color: map-get($colors, error);
+}
+
+.secondary-btn {
+  padding: em(14) em(30) em(14) em(30);
+}
+
+.desktop {
+  display: none;
+}
+
+.tablet {
+  display: none;
+}
+
+@media only screen and (min-width: $tablet-res) and (max-width: $desktop-res) {
+  .desktop {
+    display: none;
+  }
+  .tablet {
+    display: initial;
+  }
+  .mobile {
+    display: none;
+  }
+  .dim-background {
+    position: fixed;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .3);
+  }
+}
+
+@media only screen and (min-width: $desktop-res) {
+  h1 {
+    font-size: em(54);
+    line-height: em(68, 54);
+    letter-spacing: em(1, 54);
+    &.hero {
+      font-size: em(67.5);
+      line-height: em(89, 67.5);
+      letter-spacing: em(1, 67.5);
+    }
+  }
+  h2 {
+    font-size: em(27);
+    line-height: em(38);
+    letter-spacing: em(1, 31);
+  }
+  h3 {
+    font-size: em(20.25);
+    line-height: em(28, 20.25);
+    letter-spacing: em(.25, 20.25);
+  }
+  h4 {
+    font-size: em(11.25);
+    line-height: em(18);
+    letter-spacing: em(0);
+    font-weight: normal;
+  }
+  h5 {
+    font-size: em(32);
+    line-height: em(48, 32);
+    letter-spacing: em(.75, 32);
+  }
+  a, td {
+    font-size: em(18);
+    line-height: em(32, 18);
+    letter-spacing: em(.25, 18);
+  }
+  p {
+    font-size: em(18);
+    letter-spacing: em(0);
+    line-height: em(32);
+  }
+  .dim-background {
+    position: fixed;
+    z-index: 1;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, .3);
+  }
+  .spacer {
+    width: em(64);
+    height: em(5);
+    @include gradient;
+  }
+  .desktop {
+    display: initial;
+  }
+  .tablet {
+    display: none;
+  }
+  .mobile {
+    display: none;
+  }
+}
+
+.alt-form .mat-input-underline, .alt-form .mat-input-underline span {
+  background-color: map-get($colors, light-text);
+}
+
+.alt-form .mat-input-placeholder {
+  color: map-get($colors, light-text);
+}
+
+//hiding man icon for input fields in safari browser
+input::-webkit-contacts-auto-fill-button {
+  visibility: hidden;
+  display: none !important;
+  pointer-events: none;
+  position: absolute;
+  right: 0;
+}
+
+.cdk-global-scrollblock {
+  position: static;
+}

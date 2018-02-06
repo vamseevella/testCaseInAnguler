@@ -16,6 +16,7 @@ export class UsersService {
       .get(this._getURL)
       .map((resp) => resp);
   }
+
   getUserInfo(): Observable<{}> {
     return this.httpClient
       .get('https://jsonplaceholder.typicode.com/ram')
