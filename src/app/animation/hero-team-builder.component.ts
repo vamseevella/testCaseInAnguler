@@ -98,7 +98,6 @@ export class HeroTeamBuilderComponent {
   heroes: Hero[];
 
   constructor(public heroService: HeroService) {
-    alert('vamsee');
     this.heroes = heroService.heroes;
   }
 }

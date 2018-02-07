@@ -44,8 +44,8 @@ import {Hero} from '../services/hero.service';
         backgroundColor: '#cfd8dc',
         transform: 'scale(1.1)'
       })),
-      transition('inactive => active', animate('100ms ease-in')),
-      transition('active => inactive', animate('100ms ease-out'))
+      transition('inactive => active', animate('1000ms ease-in')),
+      transition('active => inactive', animate('1000ms ease-out'))
     ])
   ]
 })
