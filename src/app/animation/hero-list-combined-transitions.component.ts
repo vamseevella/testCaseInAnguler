@@ -19,7 +19,7 @@ import {Hero} from '../services/hero.service';
       <li *ngFor="let hero of heroes"
           [@heroState]="hero.state"
           (click)="hero.toggleState()">
-        {{hero.name}}
+        {{hero.name}}-{{hero.state}}
       </li>
     </ul>
   `,

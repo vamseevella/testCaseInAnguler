@@ -29,6 +29,5 @@ export class MyInterceptor implements HttpInterceptor {
         }
       }
     });
-
   }
 }

@@ -1,24 +1,30 @@
 <!--The content below is only a placeholder and can be replaced.-->
-<div style="text-align:center">
-  <h1>
-    Welcome to {{title}}!
-  </h1>
-</div>
-<div>
-  <button (click)=getNewRandomUser()>Get new random user</button>
+<!--<div style="text-align:center">-->
+<!--<h1>-->
+<!--Welcome to {{title}}!-->
+<!--</h1>-->
+<!--</div>-->
+<!--<div>-->
+<!--<button (click)=getNewRandomUser()>Get new random user</button>-->
 
-  <p>Username: {{ user.getUserName() }}</p>
-  <p>Name: {{ user.getName() }}</p>
-  <p>Email: {{user.getEmail() }}</p>
-</div>
+<!--<p>Username: {{ user.getUserName() }}</p>-->
+<!--<p>Name: {{ user.getName() }}</p>-->
+<!--<p>Email: {{user.getEmail() }}</p>-->
+<!--</div>-->
 
 
-<div>
-  <button (click)="loginWithFb()">Facebook Login</button>
-  <button (click)="logout()">Logout</button>
+<!--<div>-->
+<!--<button (click)="loginWithFb()">Facebook Login</button>-->
+<!--<button (click)="logout()">Logout</button>-->
+<!--</div>-->
+<!--<div>-->
+<!--<br>-->
+<!--</div>-->
+<div style="text-align: center">
+  <nav>
+    <a routerLink="eager" routerLinkActive="true">Eager</a>&nbsp;&nbsp;
+    <a routerLink="lazy" routerLinkActive="true">Lazy</a>
+  </nav>
+  <br><br>
+  <router-outlet></router-outlet>
 </div>
-<div>
-  <br>
-</div>
-<router-outlet></router-outlet>
-

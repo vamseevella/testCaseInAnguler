@@ -23,7 +23,8 @@ import {Hero} from '../services/hero.service';
       <li *ngFor="let hero of heroes"
           [@heroState]="hero.state"
           (click)="hero.toggleState()">
-        {{hero.name}}
+        {{hero.name}}--{{hero.state}}
+
       </li>
     </ul>
   `,
@@ -37,7 +38,7 @@ import {Hero} from '../services/hero.service';
   animations: [
     trigger('heroState', [
       state('inactive', style({
-        backgroundColor: '#eee',
+        backgroundColor: 'blue',
         transform: 'scale(1)'
       })),
       state('active', style({

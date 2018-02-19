@@ -8,7 +8,9 @@
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
-    "e2e": "ng e2e"
+    "e2e": "ng e2e",
+    "storybook": "start-storybook -p 6006",
+    "build-storybook": "build-storybook"
   },
   "private": true,
   "dependencies": {
@@ -70,6 +72,12 @@
     "protractor": "^5.3.0",
     "ts-node": "^4.1.0",
     "tslint": "^5.9.1",
-    "uuid": "^3.2.1"
+    "uuid": "^3.2.1",
+    "@storybook/angular": "^3.3.13",
+    "@storybook/addon-notes": "^3.3.13",
+    "@storybook/addon-actions": "^3.3.13",
+    "@storybook/addon-links": "^3.3.13",
+    "@storybook/addons": "^3.3.13",
+    "babel-core": "^6.26.0"
   }
 }

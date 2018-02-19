@@ -8,12 +8,14 @@ import {MyInterceptor} from './services/intersepter.service';
 
 
 import {AppComponent} from './app.component';
+import {EagerComponent} from './eager/eager.component';
 import {UserService} from './services/user.service';
 import {AnimationModule} from './animation/animation.module';
 import {AppRoutingModule} from './app.route.moudle';
 
 @NgModule({
   declarations: [
+    EagerComponent,
     AppComponent
   ],
   imports: [

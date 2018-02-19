@@ -18,7 +18,7 @@ import {Hero} from '../services/hero.service';
     <ul>
       <li *ngFor="let hero of heroes"
           [@flyInOut]="'in'">
-        {{hero.name}}
+        {{hero.name}}-{{hero.state}}
       </li>
     </ul>
   `,
